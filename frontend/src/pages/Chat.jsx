@@ -26,7 +26,7 @@ const Chat = () => {
   const extractFileUrl = (text) => {
     const match = text.match(/generated_files\/[\w-]+\.pptx/);
     if (match) {
-      return `backenURL/${match[0]}`;
+      return `${backenURL}/${match[0]}`;
     }
     return null;
   };
@@ -40,7 +40,7 @@ const Chat = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('backenURL/chat', {
+      const response = await fetch(`${backenURL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_message: userMessage.text, mode: mode })
