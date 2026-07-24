@@ -12,7 +12,9 @@ const Chat = () => {
   const [input, setInput] = useState('');
   const [mode, setMode] = useState('chat'); // 'chat' or 'ppt'
   const [isLoading, setIsLoading] = useState(false);
-  const backenURL = "http://127.0.0.1:8000"
+
+  const backenURL = "http://127.0.0.1:8000" || "https://maryln-dutiable-felicita.ngrok-free.dev"
+  
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -42,7 +44,10 @@ const Chat = () => {
     try {
       const response = await fetch(`${backenURL}/chat`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': '69420'
+        },
         body: JSON.stringify({ user_message: userMessage.text, mode: mode })
       });
 
