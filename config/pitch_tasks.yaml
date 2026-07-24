@@ -1,0 +1,47 @@
+ppt_task:
+  description: >
+    Based on the user's request: "{user_message}", create a complete pitch deck.
+
+    Step 1: Design the deck structure as JSON with this exact schema:
+    {{
+      "title": "<Deck Title>",
+      "subtitle": "<One-line subtitle/tagline>",
+      "theme": {{
+        "background_color": "<hex code, no # symbol, e.g. 1A1A2E>",
+        "accent_color": "<hex code, no # symbol, e.g. E94E77>",
+        "text_color": "<hex code, no # symbol, e.g. FFFFFF>"
+      }},
+      "slides": [
+        {{
+          "title": "<Slide Title, e.g. Problem>",
+          "content": ["<bullet point 1>", "<bullet point 2>", "<bullet point 3>"],
+          "image_prompt": "<short visual description for an illustration matching this slide's idea, flat design, professional, business style>"
+        }}
+      ]
+    }}
+
+    Rules:
+    - Include 4 to 5 slides depending on the topic's complexity.
+    - Cover a logical pitch narrative where relevant: Problem, Solution,
+      Market Opportunity, Product, Business Model, Traction, Competition,
+      Team, Ask/Roadmap. Skip sections that don't apply to the user's topic.
+    - Each slide must have 3 to 5 short bullet points (max ~12 words each).
+    - No paragraphs. No slide should be left empty.
+    - Keep language confident, concise, and investor-friendly.
+    - Choose a professional color theme (background_color, accent_color,
+      text_color) as hex codes (without the # symbol) that match the mood/
+      industry of the topic. Examples: fintech = navy background + gold
+      accent, eco/sustainability = green background + white accent,
+      health/wellness = teal background + white accent, tech/startup =
+      dark charcoal background + electric blue accent. Ensure text_color
+      has strong contrast against background_color for readability.
+    - For each slide, write a short "image_prompt" describing a simple,
+      professional illustration relevant to that slide's content (flat
+      design, minimal, business style, no text in the image).
+
+    Step 2: Pass this JSON as a string to the PPT Pitch Generation Tool to
+    create the actual .pptx file. Do not skip calling the tool.
+  expected_output: >
+    A confirmation message containing the file path of the generated .pptx file,
+    e.g. "Presentation successfully created at: generated_files/My_Deck.pptx"
+  agent: ppt_agent
