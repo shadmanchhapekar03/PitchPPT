@@ -12,7 +12,7 @@ const Chat = () => {
   const [input, setInput] = useState('');
   const [mode, setMode] = useState('chat'); // 'chat' or 'ppt'
   const [isLoading, setIsLoading] = useState(false);
-  const backenURL = "backenURL"
+  const backenURL = "http://127.0.0.1:8000"
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
