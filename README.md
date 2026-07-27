@@ -48,7 +48,7 @@ PitchPPT is an AI-powered web application with two core features:
 
 - Python 3.10+
 - Node.js 18+
-- pip / npm
+- UV / npm
 
 ### Backend Setup
 
