@@ -58,7 +58,7 @@ git clone https://github.com/shadmanchhapekar03/PitchPPT/
 cd <your-repo-folder>
 
 # Install dependencies
-pip install -r requirements.txt --break-system-packages
+uv add -r requirements.txt --break-system-packages
 
 # Run the FastAPI server
 uvicorn main:app --reload --port 8000
